@@ -1,7 +1,7 @@
 package utils;
 
 import com.github.javafaker.Faker;
-import models.*;
+import models.request.*;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -12,7 +12,6 @@ import java.util.UUID;
 public class RandomTestData {
 
     private static Random random = new Random();
-
     private static Faker faker = new Faker();
 
     public static GamesItem getRandomGame() {
@@ -51,7 +50,6 @@ public class RandomTestData {
     }
 
     public static FullUser getRandomUserWithGames() {
-        int randomNumber = Math.abs(random.nextInt());
         GamesItem gamesItem = getRandomGame();
         return FullUser.builder()
                 .login(faker.name().username() + UUID.randomUUID())

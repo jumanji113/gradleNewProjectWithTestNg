@@ -3,7 +3,7 @@ package assertions.conditions;
 import assertions.Condition;
 import io.restassured.response.ValidatableResponse;
 import lombok.RequiredArgsConstructor;
-import models.ErrorMessage;
+import models.response.ErrorMessage;
 import org.testng.Assert;
 
 /**

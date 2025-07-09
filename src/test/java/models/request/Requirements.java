@@ -1,4 +1,4 @@
-package models;
+package models.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -16,11 +16,11 @@ public class Requirements{
 	private String videoCard;
 
 	@JsonProperty("hardDrive")
-	private int hardDrive;
+	private Integer hardDrive;
 
 	@JsonProperty("osName")
 	private String osName;
 
 	@JsonProperty("ramGb")
-	private int ramGb;
+	private Integer ramGb;
 }

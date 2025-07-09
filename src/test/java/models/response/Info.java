@@ -1,4 +1,4 @@
-package models;
+package models.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class JwtAuthData {
-    private String password;
-    private String username;
+public class Info{
+	private String message;
+	private String status;
 }

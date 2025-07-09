@@ -1,4 +1,4 @@
-package models;
+package models.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Info{
-	private String message;
-	private String status;
+public class ErrorMessage{
+	private String path;
+	private String error;
+	private String timestamp;
+	private Integer status;
 }

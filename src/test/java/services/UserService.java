@@ -2,8 +2,8 @@ package services;
 
 import assertions.AssertableResponse;
 import io.restassured.http.ContentType;
-import models.FullUser;
-import models.JwtAuthData;
+import models.request.FullUser;
+import models.request.JwtAuthData;
 
 import java.util.HashMap;
 import java.util.Map;

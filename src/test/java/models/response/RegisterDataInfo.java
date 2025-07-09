@@ -1,6 +1,5 @@
-package models;
+package models.response;
 
-import assertions.conditions.MessageCondition;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

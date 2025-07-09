@@ -1,6 +1,6 @@
 package tests.RegisterTest;
 
-import models.FullUser;
+import models.request.FullUser;
 import org.testng.annotations.Test;
 import tests.BaseTest;
 import utils.RandomTestData;
