@@ -48,7 +48,7 @@ public class UserService {
     }
 
     public AssertableResponse auth(FullUser fullUser){
-        JwtAuthData data = new JwtAuthData(fullUser.getLogin(), fullUser.getPass());
+        JwtAuthData data = new JwtAuthData(fullUser.getPass(), fullUser.getLogin());
         return new AssertableResponse(given().contentType(ContentType.JSON)
                 .body(data)
                 .post("/login")
