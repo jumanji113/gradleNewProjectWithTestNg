@@ -1,20 +1,25 @@
 package tests;
 
-import controllers.UserApiController;
+import assertions.AssertableResponse;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
+import io.restassured.http.ContentType;
 import listeners.CustomTpl;
 import models.FullUser;
-import models.RegisterDataInfo;
-import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+import services.UserService;
 import utils.RandomTestData;
+
+import static assertions.Conditions.haseMessage;
+import static assertions.Conditions.haseStatus;
+import static io.restassured.RestAssured.given;
+import static utils.RandomTestData.getRandomUserWithGames;
 
 public class UserTest {
 
-    private final UserApiController userApi = new UserApiController();
+    private final UserService userService = new UserService();
 
     @BeforeSuite
     public static void setUp() {
@@ -26,12 +31,15 @@ public class UserTest {
     @Test(groups = {"userSign"})
     public void positiveRegisterTest() {
         FullUser fullUser = RandomTestData.getRandomUser();
-        RegisterDataInfo registerDataInfo = userApi.registerUser(fullUser);
+        userService.register(fullUser)
+                .should(haseStatus(201))
+                .should(haseMessage("User created"));
+    }
 
-        Assert.assertEquals(fullUser.getPass(), registerDataInfo.getRegisterData().getPass());
-        Assert.assertEquals(fullUser.getLogin(), registerDataInfo.getRegisterData().getLogin());
-        Assert.assertNotNull(registerDataInfo.getRegisterData().getId());
-        Assert.assertEquals("User created", registerDataInfo.getInfo().getMessage());
-        Assert.assertEquals("success", registerDataInfo.getInfo().getStatus());
+    @Test(groups = {"userSign"})
+    public void positiveRegisterTestWithService(){
+        FullUser user = getRandomUserWithGames();
+        userService.register(user).should(haseStatus(201))
+                .should(haseMessage("User created"));
     }
 }

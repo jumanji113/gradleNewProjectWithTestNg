@@ -4,6 +4,7 @@ import assertions.Condition;
 import io.restassured.response.ValidatableResponse;
 import lombok.RequiredArgsConstructor;
 import models.Info;
+import models.RegisterDataInfo;
 import org.testng.Assert;
 
 @RequiredArgsConstructor
@@ -13,7 +14,7 @@ public class MessageCondition implements Condition {
 
     @Override
     public void check(ValidatableResponse response) {
-        Info info = response.extract().as(Info.class);
-        Assert.assertEquals(expectedMessage, info.getMessage());
+        RegisterDataInfo info = response.extract().as(RegisterDataInfo.class);
+        Assert.assertEquals(expectedMessage, info.getInfo().getMessage());
     }
 }

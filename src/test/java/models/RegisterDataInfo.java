@@ -1,5 +1,6 @@
 package models;
 
+import assertions.conditions.MessageCondition;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,4 +15,5 @@ public class RegisterDataInfo {
     @JsonProperty("register_data")
     private RegisterData registerData;
     private Info info;
+
 }
