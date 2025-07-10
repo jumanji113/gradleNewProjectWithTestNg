@@ -1,4 +1,4 @@
-package tests.DeleteUserTests;
+package tests.delete_user_tests;
 
 import models.request.FullUser;
 import org.testng.annotations.Test;

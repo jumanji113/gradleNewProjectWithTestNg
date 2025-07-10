@@ -1,4 +1,4 @@
-package tests.GetUserInfo;
+package tests.get_user_Info;
 
 import models.request.FullUser;
 import org.testng.Assert;

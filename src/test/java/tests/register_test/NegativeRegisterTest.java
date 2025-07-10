@@ -1,4 +1,4 @@
-package tests.RegisterTest;
+package tests.register_test;
 
 import models.request.FullUser;
 import org.testng.annotations.Test;

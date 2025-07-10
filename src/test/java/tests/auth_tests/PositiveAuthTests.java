@@ -1,4 +1,4 @@
-package tests.AuthTests;
+package tests.auth_tests;
 
 import models.request.FullUser;
 import org.testng.annotations.Test;
@@ -14,7 +14,9 @@ public class PositiveAuthTests extends BaseTest {
     @Test(groups = {"authUser"})
     public void positiveAuthNewUser(){
         FullUser user = getRandomUserWithGames();
+
         userService.register(user);
+
         userService.auth(user)
                 .should(haseStatus(200))
                 .should(haseJwt());
@@ -23,6 +25,7 @@ public class PositiveAuthTests extends BaseTest {
     @Test(groups = {"authUser"})
     public void positiveAuthAdmin(){
         FullUser admin = getAdminUser();
+
         userService.auth(admin)
                 .should(haseStatus(200))
                 .should(haseJwt());

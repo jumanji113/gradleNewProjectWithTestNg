@@ -10,7 +10,6 @@ import java.util.Random;
 import java.util.UUID;
 
 public class RandomTestData {
-
     private static Random random = new Random();
     private static Faker faker = new Faker();
 

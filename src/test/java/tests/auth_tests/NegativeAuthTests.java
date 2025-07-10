@@ -1,4 +1,4 @@
-package tests.AuthTests;
+package tests.auth_tests;
 
 import models.request.FullUser;
 import org.testng.annotations.Test;
@@ -11,6 +11,7 @@ public class NegativeAuthTests extends BaseTest {
     @Test(groups = {"authUser"})
     public void negativeAuthUser(){
         FullUser user = getRandomUserWithGames();
+
         userService.auth(user)
                 .should(haseErrorStatus(401))
                 .should(haseMessageError("Unauthorized"))

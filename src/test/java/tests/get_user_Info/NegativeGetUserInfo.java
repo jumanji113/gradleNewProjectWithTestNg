@@ -1,4 +1,4 @@
-package tests.GetUserInfo;
+package tests.get_user_Info;
 
 import org.testng.annotations.Test;
 import tests.BaseTest;
