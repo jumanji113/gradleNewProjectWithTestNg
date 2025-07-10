@@ -5,7 +5,7 @@ import tests.BaseTest;
 
 import static assertions.Conditions.haseStatus;
 
-public class NegativeGetUserInfo extends BaseTest {
+public class NegativeGetUserInfoTests extends BaseTest {
 
     @Test(groups = {"getUserInfo"})
     public void negativeGetUserInfo() {

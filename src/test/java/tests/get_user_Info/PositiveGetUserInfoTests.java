@@ -1,7 +1,6 @@
 package tests.get_user_Info;
 
 import models.request.FullUser;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import tests.BaseTest;
 import utils.RandomTestData;
@@ -10,7 +9,7 @@ import static assertions.Conditions.*;
 import static assertions.Conditions.haseMessage;
 import static utils.RandomTestData.getAdminUser;
 
-public class PositiveGetUserInfo extends BaseTest {
+public class PositiveGetUserInfoTests extends BaseTest {
 
     @Test(groups = {"getUserInfo"})
     public void positiveGetUserInfoTest() {
@@ -22,12 +21,9 @@ public class PositiveGetUserInfo extends BaseTest {
 
         String token = userService.auth(fullUser).should(haseJwt()).asJwt();
 
-        FullUser actualUser = userService.getUserInfo(token)
+        userService.getUserInfo(token)
                 .should(haseStatus(200))
-                .as(FullUser.class);
-
-        Assert.assertEquals(fullUser.getLogin(), actualUser.getLogin());
-        Assert.assertEquals(fullUser.getPass(), actualUser.getPass());
+                .should(hasUserInfo(fullUser));
     }
 
     @Test(groups = {"getUserInfo"})
@@ -36,12 +32,8 @@ public class PositiveGetUserInfo extends BaseTest {
 
         String token = userService.auth(admin).should(haseJwt()).asJwt();
 
-        FullUser actualUser = userService.getUserInfo(token)
+        userService.getUserInfo(token)
                 .should(haseStatus(200))
-                .as(FullUser.class);
-
-        Assert.assertEquals(admin.getLogin(), actualUser.getLogin());
-        Assert.assertEquals(admin.getPass(), actualUser.getPass());
-        Assert.assertNotNull(actualUser.getGames());
+                .should(hasUserInfo(admin));
     }
 }

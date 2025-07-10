@@ -9,7 +9,7 @@ import static assertions.Conditions.haseMessage;
 import static assertions.Conditions.haseStatus;
 import static utils.RandomTestData.getAdminUser;
 
-public class NegativeUpdateUserInfo extends BaseTest {
+public class NegativeUpdateUserInfoTests extends BaseTest {
     @Test(groups = {"updateUser"})
     public void negativeUpdateUser() {
         String updatedPass = String.valueOf(UUID.randomUUID());

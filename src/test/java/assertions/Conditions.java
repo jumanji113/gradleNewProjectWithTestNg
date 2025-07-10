@@ -1,6 +1,7 @@
 package assertions;
 
 import assertions.conditions.*;
+import models.request.FullUser;
 
 public class Conditions {
     public static MessageCondition haseMessage(String expectedMessage) {
@@ -21,6 +22,10 @@ public class Conditions {
 
     public static ErrorStatusCondition haseErrorStatus(Integer expectedErrorStatus) {
         return new ErrorStatusCondition(expectedErrorStatus);
+    }
+
+    public static UserInfoCondition hasUserInfo(FullUser expectedUser) {
+        return new UserInfoCondition(expectedUser);
     }
 
     public static ErrorPathCondition hasePathErrorMessage(String expectedErrorStatus) {

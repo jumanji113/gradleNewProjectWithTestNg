@@ -1,6 +1,5 @@
 package tests.update_user_info;
 
-import assertions.Condition;
 import models.request.FullUser;
 import org.testng.annotations.Test;
 import tests.BaseTest;
@@ -10,7 +9,7 @@ import java.util.UUID;
 import static assertions.Conditions.haseMessage;
 import static utils.RandomTestData.getRandomUserWithGames;
 
-public class PositiveUpdateUserInfo extends BaseTest {
+public class PositiveUpdateUserInfoTests extends BaseTest {
 
     @Test(groups = {"updateUser"})
     public void positiveUpdateUser() {
