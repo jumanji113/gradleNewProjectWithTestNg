@@ -22,5 +22,4 @@ public class PositiveUpdateUserInfoTests extends BaseTest {
         userService.updatePass(randomPass, token)
                 .should(haseMessage("User password successfully changed"));
     }
-
 }
