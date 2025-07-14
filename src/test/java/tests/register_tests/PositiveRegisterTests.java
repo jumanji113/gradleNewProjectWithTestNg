@@ -3,16 +3,16 @@ package tests.register_tests;
 import models.request.FullUser;
 import org.testng.annotations.Test;
 import tests.BaseTest;
-import utils.RandomTestData;
 
 import static assertions.Conditions.haseMessage;
 import static assertions.Conditions.haseStatus;
+import static utils.RandomTestData.getRandomUser;
 import static utils.RandomTestData.getRandomUserWithGames;
 
 public class PositiveRegisterTests extends BaseTest {
     @Test(groups = {"userSign"})
     public void positiveRegisterTest() {
-        FullUser fullUserWithoutGames = RandomTestData.getRandomUser();
+        FullUser fullUserWithoutGames = getRandomUser();
 
         userService.register(fullUserWithoutGames)
                 .should(haseStatus(201))

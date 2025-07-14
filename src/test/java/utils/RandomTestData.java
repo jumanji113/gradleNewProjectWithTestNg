@@ -6,14 +6,23 @@ import models.request.*;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Random;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomTestData {
-    private static Random random = new Random();
-    private static Faker faker = new Faker();
+
+    // ThreadLocal для Faker - каждый поток имеет свой экземпляр
+    private static final ThreadLocal<Faker> FAKER_THREAD_LOCAL =
+            ThreadLocal.withInitial(() -> new Faker());
+
+    // Метод для получения thread-safe Faker
+    private static Faker getFaker() {
+        return FAKER_THREAD_LOCAL.get();
+    }
 
     public static GamesItem getRandomGame() {
+        Faker faker = getFaker(); // Получаем thread-safe Faker
+
         SimilarDlc similarDlc = SimilarDlc.builder()
                 .isFree(false)
                 .dlcNameFromAnotherGame(faker.funnyName().name())
@@ -35,12 +44,12 @@ public class RandomTestData {
         return GamesItem.builder()
                 .requirements(requirements)
                 .genre(faker.book().genre())
-                .price(random.nextInt(100))
+                .price(ThreadLocalRandom.current().nextInt(100)) // Используем ThreadLocalRandom
                 .description("CS 2")
                 .rating(faker.random().nextInt(10))
                 .title(faker.book().title())
                 .publishDate(LocalDateTime.now().toString())
-                .requiredAge(random.nextBoolean())
+                .requiredAge(ThreadLocalRandom.current().nextBoolean()) // Используем ThreadLocalRandom
                 .tags(Arrays.asList("shooter", "cars"))
                 .dlcs(Collections.singletonList(dlcsItem))
                 .company(faker.company().name())
@@ -49,6 +58,8 @@ public class RandomTestData {
     }
 
     public static FullUser getRandomUserWithGames() {
+        Faker faker = getFaker(); // Получаем thread-safe Faker
+
         GamesItem gamesItem = getRandomGame();
         return FullUser.builder()
                 .login(faker.name().username() + UUID.randomUUID())
@@ -58,12 +69,17 @@ public class RandomTestData {
     }
 
     public static FullUser getRandomUser() {
-        int randomNumber = Math.abs(random.nextInt());
-        return FullUser.builder().login("Unhuman" + UUID.randomUUID()).pass("Jumanji" + randomNumber)
+        int randomNumber = Math.abs(ThreadLocalRandom.current().nextInt()); // Используем ThreadLocalRandom
+        return FullUser.builder()
+                .login("Unhuman" + UUID.randomUUID())
+                .pass("Jumanji" + randomNumber)
                 .build();
     }
 
     public static FullUser getAdminUser() {
-        return FullUser.builder().login("admin").pass("admin").build();
+        return FullUser.builder()
+                .login("admin")
+                .pass("admin")
+                .build();
     }
 }
