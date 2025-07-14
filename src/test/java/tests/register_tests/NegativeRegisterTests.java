@@ -11,13 +11,13 @@ import static assertions.Conditions.haseStatus;
 public class NegativeRegisterTests extends BaseTest {
     @Test(groups = {"userSign"})
     public void negativeRegisterTest() {
-        FullUser fullUser = RandomTestData.getRandomUser();
+        FullUser fullUserWithoutGames = RandomTestData.getRandomUser();
 
-        userService.register(fullUser)
+        userService.register(fullUserWithoutGames)
                 .should(haseStatus(201))
                 .should(haseMessage("User created"));
 
-        userService.register(fullUser)
+        userService.register(fullUserWithoutGames)
                 .should(haseStatus(400))
                 .should(haseMessage("Login already exist"));
     }

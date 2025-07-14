@@ -12,11 +12,11 @@ import static utils.RandomTestData.getRandomUserWithGames;
 public class PositiveAuthTests extends BaseTest {
     @Test(groups = {"authUser"})
     public void positiveAuthNewUser(){
-        FullUser user = getRandomUserWithGames();
+        FullUser userWithGames = getRandomUserWithGames();
 
-        userService.register(user);
+        userService.register(userWithGames);
 
-        userService.auth(user)
+        userService.auth(userWithGames)
                 .should(haseStatus(200))
                 .should(haseJwt());
     }

@@ -10,9 +10,9 @@ import static utils.RandomTestData.getRandomUserWithGames;
 public class NegativeAuthTests extends BaseTest {
     @Test(groups = {"authUser"})
     public void negativeAuthUser(){
-        FullUser user = getRandomUserWithGames();
+        FullUser userWithGames = getRandomUserWithGames();
 
-        userService.auth(user)
+        userService.auth(userWithGames)
                 .should(haseErrorStatus(401))
                 .should(haseMessageError("Unauthorized"))
                 .should(hasePathErrorMessage("/api/login"));

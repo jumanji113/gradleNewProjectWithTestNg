@@ -12,18 +12,18 @@ import static utils.RandomTestData.getRandomUserWithGames;
 public class PositiveRegisterTests extends BaseTest {
     @Test(groups = {"userSign"})
     public void positiveRegisterTest() {
-        FullUser fullUser = RandomTestData.getRandomUser();
+        FullUser fullUserWithoutGames = RandomTestData.getRandomUser();
 
-        userService.register(fullUser)
+        userService.register(fullUserWithoutGames)
                 .should(haseStatus(201))
                 .should(haseMessage("User created"));
     }
 
     @Test(groups = {"userSign"})
     public void positiveRegisterTestWithGames() {
-        FullUser user = getRandomUserWithGames();
+        FullUser userWithGames = getRandomUserWithGames();
 
-        userService.register(user).should(haseStatus(201))
+        userService.register(userWithGames).should(haseStatus(201))
                 .should(haseMessage("User created"));
     }
 }

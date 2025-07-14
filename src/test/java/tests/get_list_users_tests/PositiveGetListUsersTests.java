@@ -12,13 +12,13 @@ import static utils.RandomTestData.getRandomUserWithGames;
 public class PositiveGetListUsersTests extends BaseTest {
     @Test(groups = {"getUserInfo"})
     public void positiveGetUserInfoTest() {
-        FullUser user = getRandomUserWithGames();
+        FullUser userWithGames = getRandomUserWithGames();
 
-        userService.register(user);
+        userService.register(userWithGames);
 
         List<String> users = userService.getAllUsers()
                 .should(haseStatus(200)).asList(String.class);
 
-        users.contains(user.getLogin());
+        users.contains(userWithGames.getLogin());
     }
 }

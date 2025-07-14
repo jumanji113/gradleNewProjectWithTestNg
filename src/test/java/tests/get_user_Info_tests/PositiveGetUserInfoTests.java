@@ -12,17 +12,17 @@ import static utils.RandomTestData.getAdminUser;
 public class PositiveGetUserInfoTests extends BaseTest {
     @Test(groups = {"getUserInfo"})
     public void positiveGetUserInfoTest() {
-        FullUser fullUser = RandomTestData.getRandomUser();
+        FullUser fullUserWithoutGames = RandomTestData.getRandomUser();
 
-        userService.register(fullUser)
+        userService.register(fullUserWithoutGames)
                 .should(haseStatus(201))
                 .should(haseMessage("User created"));
 
-        String token = userService.auth(fullUser).should(haseJwt()).asJwt();
+        String token = userService.auth(fullUserWithoutGames).should(haseJwt()).asJwt();
 
         userService.getUserInfo(token)
                 .should(haseStatus(200))
-                .should(hasUserInfo(fullUser));
+                .should(hasUserInfo(fullUserWithoutGames));
     }
 
     @Test(groups = {"getUserInfo"})
