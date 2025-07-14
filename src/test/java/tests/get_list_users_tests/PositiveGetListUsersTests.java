@@ -11,7 +11,7 @@ import static utils.RandomTestData.getRandomUserWithGames;
 
 public class PositiveGetListUsersTests extends BaseTest {
     @Test(groups = {"getUserInfo"})
-    public void positiveGetUserInfoTest() {
+    public void positiveGetUsersListTest() {
         FullUser userWithGames = getRandomUserWithGames();
 
         userService.register(userWithGames);

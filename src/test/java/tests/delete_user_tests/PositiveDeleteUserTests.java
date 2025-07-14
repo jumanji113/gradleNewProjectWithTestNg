@@ -9,14 +9,14 @@ import static assertions.Conditions.*;
 
 public class PositiveDeleteUserTests extends BaseTest {
     @Test(groups = {"deleteUser"})
-    public void positiveRegisterTest() {
-        FullUser userWithoutGames = RandomTestData.getRandomUser();
+    public void positiveDeleteUserTest() {
+        FullUser fullUserWithoutGames = RandomTestData.getRandomUser();
 
-        userService.register(userWithoutGames)
+        userService.register(fullUserWithoutGames)
                 .should(haseStatus(201))
                 .should(haseMessage("User created"));
 
-        String token = userService.auth(userWithoutGames).should(haseJwt()).asJwt();
+        String token = userService.auth(fullUserWithoutGames).should(haseJwt()).asJwt();
 
         userService.deleteUser(token).should(haseMessage("User successfully deleted"));
     }
