@@ -1,5 +1,6 @@
 package tests.delete_user_tests;
 
+import io.qameta.allure.testng.Tag;
 import models.request.FullUser;
 import org.testng.annotations.Test;
 import tests.BaseTest;
@@ -9,6 +10,7 @@ import static assertions.Conditions.*;
 
 public class PositiveDeleteUserTests extends BaseTest {
     @Test(groups = {"deleteUser"})
+    @Tag("")
     public void positiveDeleteUserTest() {
         FullUser fullUserWithoutGames = RandomTestData.getRandomUser();
 
