@@ -1,4 +1,4 @@
-package tests.update_user_info;
+package tests.update_user_info_tests;
 
 import models.request.FullUser;
 import org.testng.annotations.Test;

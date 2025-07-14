@@ -8,7 +8,6 @@ import org.testng.Assert;
 
 @RequiredArgsConstructor
 public class MessageCondition implements Condition {
-
     private final String expectedMessage;
 
     @Override

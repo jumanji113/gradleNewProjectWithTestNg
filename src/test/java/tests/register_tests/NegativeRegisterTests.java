@@ -1,4 +1,4 @@
-package tests.register_test;
+package tests.register_tests;
 
 import models.request.FullUser;
 import org.testng.annotations.Test;
@@ -8,8 +8,7 @@ import utils.RandomTestData;
 import static assertions.Conditions.haseMessage;
 import static assertions.Conditions.haseStatus;
 
-public class NegativeRegisterTest extends BaseTest {
-
+public class NegativeRegisterTests extends BaseTest {
     @Test(groups = {"userSign"})
     public void negativeRegisterTest() {
         FullUser fullUser = RandomTestData.getRandomUser();

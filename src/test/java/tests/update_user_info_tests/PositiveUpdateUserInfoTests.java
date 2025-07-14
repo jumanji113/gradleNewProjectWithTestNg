@@ -1,4 +1,4 @@
-package tests.update_user_info;
+package tests.update_user_info_tests;
 
 import models.request.FullUser;
 import org.testng.annotations.Test;
@@ -10,7 +10,6 @@ import static assertions.Conditions.haseMessage;
 import static utils.RandomTestData.getRandomUserWithGames;
 
 public class PositiveUpdateUserInfoTests extends BaseTest {
-
     @Test(groups = {"updateUser"})
     public void positiveUpdateUser() {
         FullUser user = getRandomUserWithGames();

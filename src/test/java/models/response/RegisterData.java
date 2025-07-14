@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class RegisterData{
-	private String pass;
-	private List<Object> games;
-	private Integer id;
-	private String login;
+public class RegisterData {
+    private String pass;
+    private List<Object> games;
+    private Integer id;
+    private String login;
 }

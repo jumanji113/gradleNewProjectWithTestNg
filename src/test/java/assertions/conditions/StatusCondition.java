@@ -7,7 +7,6 @@ import org.testng.Assert;
 
 @RequiredArgsConstructor
 public class StatusCondition implements Condition {
-
     private final Integer statuscode;
 
     @Override

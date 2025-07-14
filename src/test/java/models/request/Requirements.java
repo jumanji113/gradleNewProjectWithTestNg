@@ -10,17 +10,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Requirements{
+public class Requirements {
+    @JsonProperty("videoCard")
+    private String videoCard;
 
-	@JsonProperty("videoCard")
-	private String videoCard;
+    @JsonProperty("hardDrive")
+    private Integer hardDrive;
 
-	@JsonProperty("hardDrive")
-	private Integer hardDrive;
+    @JsonProperty("osName")
+    private String osName;
 
-	@JsonProperty("osName")
-	private String osName;
-
-	@JsonProperty("ramGb")
-	private Integer ramGb;
+    @JsonProperty("ramGb")
+    private Integer ramGb;
 }

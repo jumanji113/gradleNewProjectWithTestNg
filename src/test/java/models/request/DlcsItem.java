@@ -10,23 +10,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class DlcsItem{
+public class DlcsItem {
+    @JsonProperty("dlcName")
+    private String dlcName;
 
-	@JsonProperty("dlcName")
-	private String dlcName;
+    @JsonProperty("similarDlc")
+    private SimilarDlc similarDlc;
 
-	@JsonProperty("similarDlc")
-	private SimilarDlc similarDlc;
+    @JsonProperty("price")
+    private Integer price;
 
-	@JsonProperty("price")
-	private Integer price;
+    @JsonProperty("rating")
+    private Integer rating;
 
-	@JsonProperty("rating")
-	private Integer rating;
+    @JsonProperty("description")
+    private String description;
 
-	@JsonProperty("description")
-	private String description;
-
-	@JsonProperty("isDlcFree")
-	private Boolean isDlcFree;
+    @JsonProperty("isDlcFree")
+    private Boolean isDlcFree;
 }

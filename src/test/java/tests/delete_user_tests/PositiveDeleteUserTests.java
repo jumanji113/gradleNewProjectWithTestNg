@@ -7,7 +7,7 @@ import utils.RandomTestData;
 
 import static assertions.Conditions.*;
 
-public class PositiveDeleteUserTest extends BaseTest {
+public class PositiveDeleteUserTests extends BaseTest {
     @Test(groups = {"deleteUser"})
     public void positiveRegisterTest() {
         FullUser fullUser = RandomTestData.getRandomUser();

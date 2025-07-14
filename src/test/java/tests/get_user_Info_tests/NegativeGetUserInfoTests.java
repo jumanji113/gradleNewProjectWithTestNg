@@ -1,4 +1,4 @@
-package tests.get_user_Info;
+package tests.get_user_Info_tests;
 
 import org.testng.annotations.Test;
 import tests.BaseTest;
@@ -6,7 +6,6 @@ import tests.BaseTest;
 import static assertions.Conditions.haseStatus;
 
 public class NegativeGetUserInfoTests extends BaseTest {
-
     @Test(groups = {"getUserInfo"})
     public void negativeGetUserInfo() {
         userService.getUserInfo("some token")

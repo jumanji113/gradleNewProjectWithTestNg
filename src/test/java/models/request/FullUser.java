@@ -16,9 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class FullUser{
-
-
+public class FullUser {
     @JsonProperty("pass")
     private String pass;
 

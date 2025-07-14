@@ -1,4 +1,4 @@
-package tests.register_test;
+package tests.register_tests;
 
 import models.request.FullUser;
 import org.testng.annotations.Test;
@@ -9,9 +9,7 @@ import static assertions.Conditions.haseMessage;
 import static assertions.Conditions.haseStatus;
 import static utils.RandomTestData.getRandomUserWithGames;
 
-public class PositiveRegisterTest extends BaseTest {
-
-
+public class PositiveRegisterTests extends BaseTest {
     @Test(groups = {"userSign"})
     public void positiveRegisterTest() {
         FullUser fullUser = RandomTestData.getRandomUser();

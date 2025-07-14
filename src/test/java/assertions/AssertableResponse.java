@@ -9,7 +9,6 @@ import java.util.List;
 
 @RequiredArgsConstructor
 public class AssertableResponse {
-
     private final ValidatableResponse response;
 
     public AssertableResponse should(Condition condition){

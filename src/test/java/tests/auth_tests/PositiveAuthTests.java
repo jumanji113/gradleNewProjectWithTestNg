@@ -10,7 +10,6 @@ import static utils.RandomTestData.getAdminUser;
 import static utils.RandomTestData.getRandomUserWithGames;
 
 public class PositiveAuthTests extends BaseTest {
-
     @Test(groups = {"authUser"})
     public void positiveAuthNewUser(){
         FullUser user = getRandomUserWithGames();

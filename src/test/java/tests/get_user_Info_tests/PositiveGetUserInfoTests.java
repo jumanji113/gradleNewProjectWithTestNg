@@ -1,4 +1,4 @@
-package tests.get_user_Info;
+package tests.get_user_Info_tests;
 
 import models.request.FullUser;
 import org.testng.annotations.Test;
@@ -10,7 +10,6 @@ import static assertions.Conditions.haseMessage;
 import static utils.RandomTestData.getAdminUser;
 
 public class PositiveGetUserInfoTests extends BaseTest {
-
     @Test(groups = {"getUserInfo"})
     public void positiveGetUserInfoTest() {
         FullUser fullUser = RandomTestData.getRandomUser();

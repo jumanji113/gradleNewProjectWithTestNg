@@ -14,5 +14,4 @@ public class RegisterDataInfo {
     @JsonProperty("register_data")
     private RegisterData registerData;
     private Info info;
-
 }

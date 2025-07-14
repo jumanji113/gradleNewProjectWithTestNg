@@ -8,7 +8,7 @@ import static assertions.Conditions.*;
 import static assertions.Conditions.haseMessage;
 import static utils.RandomTestData.getAdminUser;
 
-public class NegativeDeleteUserTest extends BaseTest {
+public class NegativeDeleteUserTests extends BaseTest {
     @Test(groups = {"deleteUser"})
     public void negativeRegisterTest() {
         FullUser admin = getAdminUser();
